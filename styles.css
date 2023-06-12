@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    height: 10vh;
+}
+
+.main {
+    height: 60vh;
+}
+
+.control-section .grid-btn-container, .round-btn-conatiner {
+    height: 30vh;
+}
+
+section, div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+section {
+    width: 100%;
+}
+
+#sketchpad {
+    width: 80%;
+    height: 90%;
+    margin: 5%;
+}
+
+.vert {
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.hori {
+    flex-direction: row;
+}
+
+.top, .bottom, .left, .right, .grid-btn-container, .round-btn-conatiner{
+    flex-grow: 1;
+}
