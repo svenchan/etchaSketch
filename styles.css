@@ -61,21 +61,29 @@ section {
     border-right: 1px solid;
 }
 
-.hori {
-    flex-direction: row;
-}
-
 .control-section {
     justify-content: space-around;
     border: 1px solid black;
     background-color: ;
+    margin-bottom: 1vh;
 }
 
 .top, .bottom, .left, .right, .grid-btn-container, .round-btn-conatiner{
     flex-grow: 1;
     max-width: 250px;
+    border: none;
 }    
 
+.btn {
+    transition: 1s all ease;
+    box-shadow: 1px 4px 1px;
+}
+
+.round {
+    height: 6em;
+    width: 6em;
+    border-radius: 6em;
+}
 
 @media only screen and (max-width: 600px) {
     .control-section {
