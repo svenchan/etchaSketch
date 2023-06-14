@@ -1,5 +1,11 @@
 const sketchpad = document.getElementById("sketchpad");
 
+function getRandomColor() {
+  return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`  
+}
+
+ranColor = getRandomColor();
+console.log(ranColor);
 
 function createGrid(number) {
     sketchpad.innerHTML = "";
