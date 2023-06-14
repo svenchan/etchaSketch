@@ -36,10 +36,19 @@ gridBtn.addEventListener("click", function() {
     // parseInt makes sure value is a number
     const gridSize = parseInt(gridSizeInput);
     createGrid(gridSize);
-    console.log(`grid with gridsize: ${gridSize}`);
 });
 
 const colorBtn = document.getElementById("color-btn");
 colorBtn.addEventListener("click", () => {
     colorHover();
+});
+
+const monoBtn = document.getElementById("mono-btn");
+addEventListener("click", () => {
+    monoHover();
+});
+
+const eraseBtn = document.getElementById("erease-btn");
+eraseBtn.addEventListener("click", () => {
+    erasePad();
 });
