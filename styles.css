@@ -81,10 +81,6 @@ section {
 
 }
 
-.pixel:hover {
-    background-color: #133b59;
-}
-
 .vert {
     flex-direction: column;
     justify-content: space-evenly;
