@@ -29,6 +29,14 @@ function colorHover() {
     });
 }
 
+
+function erasePad() {
+    const elements = document.getElementsByClassName("pixel");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor = "whitesmoke";   
+    }
+}
+
 // button section
 const gridBtn = document.getElementById("new-grid-btn");
 gridBtn.addEventListener("click", function() {
@@ -48,7 +56,13 @@ addEventListener("click", () => {
     monoHover();
 });
 
-const eraseBtn = document.getElementById("erease-btn");
+const eraseBtn = document.getElementById("erase-btn");
 eraseBtn.addEventListener("click", () => {
     erasePad();
+});
+
+window.addEventListener("load", function(){
+    const defaultGridSize = parseInt(document.getElementById("grid-size").value);
+    createGrid(defaultGridSize);
+    colorHover();
 });
