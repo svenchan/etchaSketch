@@ -29,6 +29,29 @@ function colorHover() {
     });
 }
 
+function getMono() {
+    for (let x = 1; x < 11; x++) {
+        let color = `rgba(0, 0, 0, ${x / 10})`;
+        if (x===10){
+            x = 1;
+        }
+    }
+}
+
+function  monoHover() {
+    function handleHover(event) {
+        const target = event.target;
+        if (event.target.classList.contains("pixel")) {
+            event.target.style.backgroundColor = getMono();
+        }
+    }
+
+    //different event listerns handled by handleHover()
+    document.addEventListener("hover", handleHover());
+    document.addEventListener("touchstart", handleHover());
+    document.addEventListener("touchmove", handleHover());
+}
+
 
 function erasePad() {
     const elements = document.getElementsByClassName("pixel");
