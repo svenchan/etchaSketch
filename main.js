@@ -30,26 +30,31 @@ function colorHover() {
 }
 
 function getMono() {
+    const colors = [];
     for (let x = 1; x < 11; x++) {
-        let color = `rgba(0, 0, 0, ${x / 10})`;
-        if (x===10){
-            x = 1;
-        }
+        const alpha = x / 10;
+        const color = `rgba(0, 0, 0, ${alpha})`;
+        colors.push(color);
     }
+    return colors;
 }
+
+let gradationIndex = 0;
 
 function  monoHover() {
     function handleHover(event) {
         const target = event.target;
         if (event.target.classList.contains("pixel")) {
-            event.target.style.backgroundColor = getMono();
+            const gradations = getMono();
+            target.style.backgroundColor = gradations[gradationIndex];
+            gradationIndex = (gradationIndex + 1) % gradations.length;
         }
     }
 
     //different event listerns handled by handleHover()
-    document.addEventListener("hover", handleHover());
-    document.addEventListener("touchstart", handleHover());
-    document.addEventListener("touchmove", handleHover());
+    document.addEventListener("mouseover", handleHover);
+    document.addEventListener("touchstart", handleHover);
+    document.addEventListener("touchmove", handleHover);
 }
 
 
@@ -71,11 +76,13 @@ gridBtn.addEventListener("click", function() {
 
 const colorBtn = document.getElementById("color-btn");
 colorBtn.addEventListener("click", () => {
+    erasePad();
     colorHover();
 });
 
 const monoBtn = document.getElementById("mono-btn");
-addEventListener("click", () => {
+monoBtn.addEventListener("click", () => {
+    erasePad();
     monoHover();
 });
 
