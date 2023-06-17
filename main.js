@@ -76,13 +76,34 @@ function  monoHover() {
             gradationIndex = (gradationIndex + 1) % gradations.length;
         }
     }
-
-    //different event listerns handled by handleHover()
     document.addEventListener("mouseover", handleHover);
-    document.addEventListener("touchstart", handleHover);
-    document.addEventListener("touchmove", handleHover);
 }
 
+function monoTouch() {
+    let isTouching = false;
+    sketchpad.addEventListener("touchstart", (event) => {
+        isTouching = true;
+    });
+
+    sketchpad.addEventListener("touchend", (event) => {
+        isTouching = false;
+    });
+
+    sketchpad.addEventListener("touchmove", (event) => {
+        if (!isTouching) return;
+
+        event.preventDefault();
+
+        const touches = event.touches;
+        for (let i = 0; i < touches.length; i++) {
+            const touch = touches[i];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target && target.classList.contains("pixel")) {
+                target.style.backgroundColor = getMono();
+            }
+        }
+    });
+}
 function changeAppBackground() {
     const appBackground = document.getElementsByClassName("background");
     const title = document.getElementById("title");
@@ -120,6 +141,7 @@ const monoBtn = document.getElementById("mono-btn");
 monoBtn.addEventListener("click", () => {
     erasePad();
     monoHover();
+    monoTouch();
 });
 
 const eraseBtn = document.getElementById("erase-btn");
