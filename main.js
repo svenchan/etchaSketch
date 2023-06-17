@@ -29,15 +29,27 @@ function colorHover() {
 }
 
 function colorTouch() {
+    let isTouching = false;
     sketchpad.addEventListener("touchstart", (event) => {
-        if (event.target.classList.contains("pixel")) {
-            event.target.style.backgroundColor = getRandomColor();
-        }
+        isTouching = true;
+    });
+
+    sketchpad.addEventListener("touchend", (event) => {
+        isTouching = false;
     });
 
     sketchpad.addEventListener("touchmove", (event) => {
-        if (event.target.classList.contains("pixel")) {
-            event.target.style.backgroundColor = getRandomColor();
+        if (!isTouching) return;
+
+        event.preventDefault();
+
+        const touches = event.touches;
+        for (let i = 0; i < touches.length; i++) {
+            const touch = touches[i];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target && target.classList.contains("pixel")) {
+                target.style.backgroundColor = getRandomColor();
+            }
         }
     });
 }
