@@ -54,7 +54,6 @@ function colorTouch() {
     });
 }
 
-
 function getMono() {
     const colors = [];
     for (let x = 1; x < 11; x++) {
@@ -99,11 +98,14 @@ function monoTouch() {
             const touch = touches[i];
             const target = document.elementFromPoint(touch.clientX, touch.clientY);
             if (target && target.classList.contains("pixel")) {
-                target.style.backgroundColor = getMono();
+                const gradations = getMono();
+                target.style.backgroundColor = gradations[gradationIndex];
+                gradationIndex = (gradationIndex + 1) % gradations.length;
             }
         }
     });
 }
+
 function changeAppBackground() {
     const appBackground = document.getElementsByClassName("background");
     const title = document.getElementById("title");
