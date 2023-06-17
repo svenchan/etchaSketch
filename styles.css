@@ -24,12 +24,13 @@ body {
     color: #3C486B;
     letter-spacing: 0.2rem;
     border-radius: 10px 10px 0 0;
+    background-color: #F0F0F0;
 }
 
 .main {
     height: 60vh;
     border: 1px solid #4c6f8a;
-    background-color: ;
+    background-color: whitesmoke;
 
 }
 
@@ -77,9 +78,7 @@ section {
 .pixel {
     border: none;
     flex-grow: 1;
-    height: 100%;
-    
-
+    height: 100%; 
 }
 
 .vert {
@@ -91,7 +90,7 @@ section {
 .control-section {
     justify-content: space-around;
     border: 1px solid #4c6f8a;
-    background-color: ;
+    background-color: white;
     margin-bottom: 1vh;
     height: 28vh;
 }
@@ -162,14 +161,6 @@ input {
 .round {
     border-radius: 6em;
     
-}
-
-.background1 {
-    background-color: #F45050;
-}
-
-.background2 {
-    background-color: #F9D949;
 }
 
 
