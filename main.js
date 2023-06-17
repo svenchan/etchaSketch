@@ -83,6 +83,14 @@ function  monoHover() {
     document.addEventListener("touchmove", handleHover);
 }
 
+function changeAppBackground() {
+    const appBackground = document.getElementsByClassName("background");
+    const title = document.getElementById("title");
+    title.style.color = getRandomColor();
+    for (let i = 0; i < appBackground.length; i++) {
+        appBackground[i].style.backgroundColor = getRandomColor();
+    }
+}
 
 function erasePad() {
     const elements = document.getElementsByClassName("pixel");
@@ -103,6 +111,7 @@ gridBtn.addEventListener("click", function() {
 const colorBtn = document.getElementById("color-btn");
 colorBtn.addEventListener("click", () => {
     erasePad();
+    changeAppBackground();
     colorHover();
     colorTouch();
 });

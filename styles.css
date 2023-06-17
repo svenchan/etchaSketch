@@ -11,6 +11,10 @@
 }
 
 body {
+    background-color: black;
+}
+
+.background {
     background-color: white;
 }
 
@@ -24,14 +28,16 @@ body {
     color: #133b59;
     letter-spacing: 0.2rem;
     border-radius: 10px 10px 0 0;
+    background-color: white;
 }
 
 .main {
     height: 60vh;
     border: 1px solid #4c6f8a;
-    background-color: ;
+    background-color: white;
 
 }
+
 
 .control-section .grid-btn-container, .round-btn-conatiner {
     height: 20vh;
