@@ -165,6 +165,16 @@ input {
 }
 
 @media only screen and (max-width: 600px) {
+    #sketchpad {
+         min-width: 100%;
+         min-height: 100%;
+         border-radius: 1rem;
+    }
+    
+    .title, .main, .control-section {
+        border: none;
+    }
+
     .control-section {
         justify-content: center;
     }
