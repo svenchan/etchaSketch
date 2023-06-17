@@ -21,13 +21,27 @@ function createGrid(number) {
 }
 
 function colorHover() {
-    document.addEventListener("mouseover",　(event) => {
-        const target = event.target;
-        if (target.classList.contains("pixel")) {
+    sketchpad.addEventListener("mouseover",　(event) => {
+        if (event.target.classList.contains("pixel")) {
             event.target.style.backgroundColor = getRandomColor();
         }
     });
 }
+
+function colorTouch() {
+    sketchpad.addEventListener("touchstart", (event) => {
+        if (event.target.classList.contains("pixel")) {
+            event.target.style.backgroundColor = getRandomColor();
+        }
+    });
+
+    sketchpad.addEventListener("touchmove", (event) => {
+        if (event.target.classList.contains("pixel")) {
+            event.target.style.backgroundColor = getRandomColor();
+        }
+    });
+}
+
 
 function getMono() {
     const colors = [];
@@ -78,6 +92,7 @@ const colorBtn = document.getElementById("color-btn");
 colorBtn.addEventListener("click", () => {
     erasePad();
     colorHover();
+    colorTouch();
 });
 
 const monoBtn = document.getElementById("mono-btn");
@@ -95,4 +110,5 @@ window.addEventListener("load", function(){
     const defaultGridSize = parseInt(document.getElementById("grid-size").value);
     createGrid(defaultGridSize);
     colorHover();
+    colorTouch();
 });
